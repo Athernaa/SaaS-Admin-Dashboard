@@ -1,6 +1,7 @@
 "use server";
 
 import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
 export async function createClientAction(formData: FormData) {
@@ -15,11 +16,12 @@ export async function createClientAction(formData: FormData) {
   ]);
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath("/clients");
-  return { success: true };
+  redirect("/clients");
+  
 }
 
 export async function deleteClientAction(id: string) {
@@ -28,9 +30,9 @@ export async function deleteClientAction(id: string) {
   const { error } = await supabase.from("clients").delete().eq("id", id);
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath("/clients");
-  return { success: true };
+  
 }

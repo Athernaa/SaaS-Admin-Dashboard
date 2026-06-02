@@ -66,7 +66,7 @@ export default async function InvoicesPage() {
               invoices?.map((invoice) => (
                 <tr key={invoice.id} className="hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors group">
                   <td className="whitespace-nowrap py-4 pl-6 pr-3 text-sm font-medium text-neutral-900 dark:text-white">
-                    {invoice.clients?.name || 'Unknown'}
+                    {(invoice.clients as any)?.name || 'Unknown'}
                   </td>
                   <td className="whitespace-nowrap px-3 py-4 text-sm text-neutral-900 dark:text-white font-semibold">
                     ${invoice.amount.toLocaleString()}

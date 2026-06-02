@@ -16,7 +16,7 @@ export async function createTaskAction(formData: FormData) {
   ]);
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath("/tasks");
@@ -29,11 +29,11 @@ export async function deleteTaskAction(id: string) {
   const { error } = await supabase.from("tasks").delete().eq("id", id);
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath("/tasks");
-  return { success: true };
+  
 }
 
 export async function updateTaskStatusAction(id: string, status: string) {
@@ -42,9 +42,9 @@ export async function updateTaskStatusAction(id: string, status: string) {
   const { error } = await supabase.from("tasks").update({ status }).eq("id", id);
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath("/tasks");
-  return { success: true };
+  
 }

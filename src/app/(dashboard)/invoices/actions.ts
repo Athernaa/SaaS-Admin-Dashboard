@@ -18,7 +18,7 @@ export async function createInvoiceAction(formData: FormData) {
   ]);
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath("/invoices");
@@ -32,12 +32,12 @@ export async function deleteInvoiceAction(id: string) {
   const { error } = await supabase.from("invoices").delete().eq("id", id);
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath("/invoices");
   revalidatePath("/dashboard");
-  return { success: true };
+  
 }
 
 export async function updateInvoiceStatusAction(id: string, status: string) {
@@ -46,10 +46,10 @@ export async function updateInvoiceStatusAction(id: string, status: string) {
   const { error } = await supabase.from("invoices").update({ status }).eq("id", id);
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath("/invoices");
   revalidatePath("/dashboard");
-  return { success: true };
+  
 }

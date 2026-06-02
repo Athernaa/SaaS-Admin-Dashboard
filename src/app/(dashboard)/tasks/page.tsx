@@ -60,7 +60,7 @@ export default async function TasksPage() {
                   <h3 className="font-medium text-neutral-900 dark:text-white mb-2">{task.title}</h3>
                   <div className="flex justify-between items-end mt-4">
                     <span className="text-xs font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 px-2 py-1 rounded-md">
-                      {task.projects?.name || 'No Project'}
+                      {(task.projects as any)?.name || 'No Project'}
                     </span>
                     
                     <div className="flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">

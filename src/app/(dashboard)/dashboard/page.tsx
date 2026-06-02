@@ -99,7 +99,7 @@ export default async function DashboardPage() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-neutral-900 dark:text-white">{project.name}</p>
-                      <p className="text-xs text-neutral-500 dark:text-neutral-400">{project.clients?.name}</p>
+                      <p className="text-xs text-neutral-500 dark:text-neutral-400">{(project.clients as any)?.name}</p>
                     </div>
                   </div>
                   <span className={`px-2.5 py-0.5 text-xs font-medium rounded-full ${
@@ -137,7 +137,7 @@ export default async function DashboardPage() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-neutral-900 dark:text-white">{task.title}</p>
-                      <p className="text-xs text-neutral-500 dark:text-neutral-400">{task.projects?.name}</p>
+                      <p className="text-xs text-neutral-500 dark:text-neutral-400">{(task.projects as any)?.name}</p>
                     </div>
                   </div>
                   <span className={`px-2.5 py-0.5 text-xs font-medium rounded-full ${

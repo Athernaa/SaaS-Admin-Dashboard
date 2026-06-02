@@ -69,7 +69,7 @@ export default async function ProjectsPage() {
                 {project.name}
               </h3>
               <p className="text-sm text-neutral-500 dark:text-neutral-400 flex-1">
-                Client: {project.clients?.name || 'Unknown'}
+                Client: {(project.clients as any)?.name || 'Unknown'}
               </p>
 
               <div className="mt-6 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex justify-between items-center">

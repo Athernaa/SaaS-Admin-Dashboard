@@ -16,7 +16,7 @@ export async function createProjectAction(formData: FormData) {
   ]);
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath("/projects");
@@ -29,9 +29,9 @@ export async function deleteProjectAction(id: string) {
   const { error } = await supabase.from("projects").delete().eq("id", id);
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath("/projects");
-  return { success: true };
+  
 }
