@@ -2,6 +2,8 @@
 
 ![ClientFlow Banner](https://via.placeholder.com/1200x600/4F46E5/FFFFFF?text=ClientFlow+CRM+Dashboard)
 
+**Live Demo:** [https://saa-s-admin-dashboard-nine.vercel.app/](https://saa-s-admin-dashboard-nine.vercel.app/)
+
 ClientFlow is a sleek, modern, full-stack CRM Dashboard designed to manage clients, projects, tasks, and invoices. Built to showcase enterprise-level frontend aesthetics and robust backend integration, this project leverages the latest capabilities of Next.js and Supabase.
 
 ## Features
